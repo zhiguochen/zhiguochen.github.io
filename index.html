@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hopegame Company Limited - Crafting Joyful Casual Games</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Balsamiq+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f8fcfb; /* Light greenish background */
+            color: #333;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: #4CAF50; /* A vibrant green */
+            color: #ffffff;
+            padding: 1.5rem 0;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h1 {
+            font-family: 'Balsamiq Sans', cursive; /* Fun, casual font for studio name */
+            margin: 0;
+            font-size: 3em;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        header p {
+            font-size: 1.2em;
+            margin-top: 0.5em;
+            opacity: 0.9;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0 0 0;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.15em;
+            padding-bottom: 5px;
+            transition: color 0.3s ease, border-bottom 0.3s ease;
+            border-bottom: 3px solid transparent; /* For hover effect */
+        }
+
+        nav ul li a:hover {
+            color: #fffacd; /* Light goldenrod yellow */
+            border-bottom: 3px solid #fffacd;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 80px 20px;
+            margin-bottom: 30px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        section h2 {
+            font-family: 'Balsamiq Sans', cursive;
+            color: #2c3e50; /* Dark blue-grey */
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.8em;
+            position: relative;
+        }
+
+        section h2::after {
+            content: '';
+            width: 100px;
+            height: 4px;
+            background-color: #f7b203; /* A bright yellow/orange */
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 5px;
+        }
+
+        /* About Us */
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .about-content img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 30px;
+            border: 6px solid #f7b203; /* Yellow border */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-content p {
+            font-size: 1.15em;
+            max-width: 800px;
+            margin-bottom: 25px;
+            color: #555;
+        }
+
+        .special-note {
+            font-style: italic;
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        /* Our Games / Portfolio */
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+        }
+
+        .game-card {
+            background-color: #fefefe;
+            border: 1px solid #e0e0e0;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden; /* Ensures border-radius applies to image */
+        }
+
+        .game-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .game-card img {
+            width: 100%;
+            height: 200px; /* Fixed height for consistency */
+            object-fit: cover;
+            border-radius: 10px; /* Rounded corners for images too */
+            margin-bottom: 20px;
+        }
+
+        .game-card h3 {
+            color: #34495e;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+            font-family: 'Balsamiq Sans', cursive;
+        }
+
+        .game-card .description {
+            font-size: 1em;
+            color: #666;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .game-card .platforms {
+            font-size: 0.9em;
+            color: #777;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .game-card .links a {
+            display: inline-block;
+            background-color: #6a0dad; /* Purple for store links */
+            color: #ffffff;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-right: 15px;
+            transition: background-color 0.3s ease;
+        }
+
+        .game-card .links a:hover {
+            background-color: #8a2be2; /* Lighter purple on hover */
+        }
+
+        .game-card .links a.google-play {
+            background-color: #0d9d58; /* Google Play green */
+        }
+        .game-card .links a.google-play:hover {
+            background-color: #0a8a4e;
+        }
+
+        .game-card .links a.app-store {
+            background-color: #007aff; /* Apple blue */
+        }
+        .game-card .links a.app-store:hover {
+            background-color: #0056b3;
+        }
+
+
+        /* Contact Us */
+        .contact-info {
+            text-align: center;
+        }
+
+        .contact-info p {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+
+        .contact-info a {
+            color: #4CAF50;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: #f7b203; /* Yellow on hover */
+            text-decoration: underline;
+        }
+
+        .social-links {
+            margin-top: 30px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin: 0 20px;
+            font-size: 3em; /* Larger icons */
+            color: #555;
+            transition: color 0.3s ease, transform 0.3s ease;
+            text-decoration: none; /* Remove underline for icons */
+        }
+
+        .social-links a:hover {
+            color: #f7b203;
+            transform: scale(1.1);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #2c3e50;
+            color: #ffffff;
+            font-size: 0.95em;
+            margin-top: 50px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5em;
+            }
+
+            nav ul li {
+                display: block;
+                margin: 15px 0;
+            }
+
+            section {
+                padding: 50px 15px;
+            }
+
+            section h2 {
+                font-size: 2.2em;
+                margin-bottom: 40px;
+            }
+
+            .about-content img {
+                width: 140px;
+                height: 140px;
+            }
+
+            .about-content p {
+                font-size: 1em;
+            }
+
+            .games-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .game-card {
+                padding: 20px;
+            }
+
+            .game-card h3 {
+                font-size: 1.5em;
+            }
+
+            .game-card .links a {
+                padding: 10px 15px;
+                margin-right: 10px;
+            }
+
+            .contact-info p {
+                font-size: 1em;
+            }
+
+            .social-links a {
+                font-size: 2.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Hopegame Company Limited</h1>
+            <p>Crafting Joyful Casual Games for Everyone!</p>
+            <nav>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#games">Our Games</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="about" class="container">
+            <h2>About Us</h2>
+            <div class="about-content">
+                <img src="images/logo.png" alt="Hopegame Studio Logo">
+                <p>
+                    Welcome to Hopegame Co., Ltd., a passionate game development company specializing in creating delightful and engaging casual games for Western audiences. We believe in the power of fun, intuitive gameplay that can be enjoyed by players of all ages across the globe.
+
+With years of experience in system development, our expertise extends beyond captivating game mechanics to robust backend systems. We specialize in building scalable infrastructure for game publishing, including comprehensive backend analytics systems that provide invaluable insights for marketing strategies and in-game performance optimization.
+                </p>
+                <p>
+                    With years of experience in system development, our expertise extends beyond game mechanics into robust backend systems. We specialize in building scalable infrastructure for game publishing, including comprehensive **backend analytics systems** for marketing and in-game performance.
+                </p>
+                <p class="special-note">
+                    Our current focus is on the European and American markets, ensuring our games resonate with a broad international audience on platforms like Google Play and iOS.
+                </p>
+
+                <h3>Our Development Philosophy</h3>
+                <p>
+                    At Hopogame Co.Ltd., we blend creativity with cutting-edge technology. We pride ourselves on:
+                </p>
+                <ul>
+    <li><strong>Player-Centric Design:</strong> We focus on creating games that bring genuine joy and satisfaction to every player.</li>
+    <li><strong>Data-Driven Decisions:</strong> Our robust analytics, covering everything from marketing channels and creatives to player sessions and in-game economies, ensure we're always improving our games and strategies.</li>
+    <li><strong>Technical Excellence:</strong> We build resilient, high-performance systems capable of supporting our games and millions of players seamlessly.</li>
+    <li><strong>Continuous Improvement:</strong> We're always learning, adapting, and embracing new technologies to push the boundaries of casual gaming.</li>
+</ul>
+            </div>
+        </section>
+
+        <section id="games" class="container">
+            <h2>Our Games</h2>
+            <div class="games-grid">
+                <div class="game-card">
+                    <img src="images/spot1.jpg" alt="Hopegame Spot DifGame">
+                    <h3>Spot Difference</h3>
+                    <p class="description">
+                        Can you find what's not quite right? In our fun and engaging Spot the Difference games, you'll be presented with two seemingly identical images. Your task is to carefully examine both and pinpoint all the subtle differences hidden within. With a variety of themes and increasing levels of challenge, these games are perfect for sharpening your observation skills and enjoying a relaxing brain workout. How many differences can you spot?
+                    </p>
+                    <p class="platforms">
+                        <strong>Platforms:</strong> Google Play, Apple App Store
+                    </p>
+                    <div class="links">
+                        <a href="https://play.google.com/store/apps/details?id=com.cmgame.app.spotdiffer" target="_blank" class="google-play">Google Play</a><!--
+                        <a href="https://apps.apple.com/app/your-game-id/id1234567890" target="_blank" class="app-store">App Store</a>-->
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <img src="images/guessit.jpg" alt="Hopegame guess Game">
+                    <h3>Guess it</h3>
+                    <p class="description">
+                        Ready to put your guessing skills to the test? Our Guess It games offer a variety of fun challenges where you'll need to use your knowledge and intuition to figure out the hidden answer. Whether it's guessing a word from scrambled letters, identifying an object from a zoomed-in image, or figuring out a song from a short audio clip, these games are designed to be entertaining and stimulating. Get ready to think outside the box and see if you can Guess It!
+                    </p>
+                    <p class="platforms">
+                        <strong>Platforms:</strong> Google Play, Apple App Store
+                    </p>
+                    <div class="links">
+                        <a href="https://play.google.com/store/apps/details?id=com.eggame.app.logoguess" target="_blank" class="google-play">Google Play</a><!--
+                        <a href="https://apps.apple.com/app/your-game-id/id1234567890" target="_blank" class="app-store">App Store</a>-->
+                    </div>
+                </div>
+
+              
+
+                </div>
+        </section>
+
+        <section id="contact" class="container">
+            <h2>Contact Us</h2>
+            <div class="contact-info">
+                <p>
+                    We're always open to new opportunities, collaborations, and hearing from our players!
+                    Feel free to reach out to us with any inquiries.
+                </p>
+                <p>
+                    <strong>Email:</strong> <a href="mailto:charles83205@gmail.com">charles83205@gmail.com</a>
+                </p>
+                <p>
+                    <strong>Business Inquiries:</strong> <a href="mailto:charles83205@gmail.com">charles83205@gmail.com</a>
+                </p>
+                
+                <div class="social-links"> 
+                </div> 
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Hopegame Co.Ltd. All rights reserved.</p>
+            <p>Made with zest and passion for games.</p>
+        </div>
+    </footer>
+</body>
+</html>
